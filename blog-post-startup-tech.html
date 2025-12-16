@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Choosing the Right Tech Stack for Your Startup - Codefinx</title>
+  <meta name="description" content="Strategic insights on selecting the perfect technology stack that will scale with your startup's growth and business objectives.">
+  <meta name="keywords" content="startup, tech stack, technology, programming, web development, mobile development, scalability">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/img/favicon/favicon.ico">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    :root { 
+      --background-color: linear-gradient(135deg, #ffffff);
+      --default-color: #444444;
+      --heading-color: #151515;
+      --accent-color: #ffab51;
+      --bullet-color: #4e2800;
+      --surface-color: #ffffff;
+      --contrast-color: #312f2f;
+      --nav-color: rgba(255, 255, 255, 0.905);
+      --nav-hover-color: #ffc451;
+      --nav-mobile-background-color: #ffffff;
+      --nav-dropdown-background-color: #ffffff;
+      --nav-dropdown-color: #212529;
+      --nav-dropdown-hover-color: #ffc451;
+    }
+
+    .light-background {
+      --background-color: #f9f9f9;
+      --surface-color: #ffffff;
+    }
+
+    .dark-background {
+      --background-color: #181717;
+      --default-color: #ffffff;
+      --heading-color: #ffffff;
+      --surface-color: #252525;
+      --contrast-color: #2a2727;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: var(--default-color);
+      background: var(--background-color);
+    }
+
+    .hero-section {
+      position: relative;
+      padding: 140px 0 80px;
+      background: linear-gradient(135deg, #1c1e22 0%, rgb(131, 144, 159) 100%);
+      color: white;
+      overflow: hidden; /* to contain ::before */
+      z-index: 0;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      color: white;
+    }
+
+    .blog-meta {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+
+    .blog-meta span {
+      margin-right: 2rem;
+    }
+
+    .blog-category {
+      background: rgba(255,255,255,.2);
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-weight: 500;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .content-section {
+      margin-bottom: 60px;
+    }
+
+    .article-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--default-color);
+    }
+
+    .article-content h2 {
+      color: var(--heading-color);
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .article-content h3 {
+      color: var(--heading-color);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .highlight-box {
+      background: var(--surface-color);
+      padding: 2rem;
+      border-left: 4px solid var(--accent-color);
+      margin: 2rem 0;
+      border-radius: 0 8px 8px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,.1);
+    }
+
+    .sidebar {
+      background: var(--surface-color);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,.08);
+      margin-bottom: 2rem;
+    }
+
+    .related-post {
+      padding: 1rem 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .related-post:last-child {
+      border-bottom: none;
+    }
+
+    .related-post h6 {
+      margin-bottom: 0.5rem;
+    }
+
+    .related-post a {
+      text-decoration: none;
+      color: var(--accent-color);
+      font-weight: 500;
+    }
+
+    .related-post a:hover {
+      color: var(--nav-hover-color);
+    }
+
+    .author-bio {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .author-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    .back-to-blog {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-block;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .back-to-blog:hover {
+      color: white;
+      opacity: 1;
+    }
+
+    .tech-stack-comparison {
+      background: var(--surface-color);
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 2rem 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,.1);
+    }
+
+    .tech-option {
+      background: #f8f9fa;
+      margin: 1rem;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.05);
+    }
+
+    .tech-option h4 {
+      color: var(--heading-color);
+      margin-bottom: 1rem;
+    }
+
+    .pros-cons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .pros {
+      background: #d4edda;
+      padding: 1rem;
+      border-radius: 5px;
+      border-left: 3px solid #28a745;
+    }
+
+    .cons {
+      background: #f8d7da;
+      padding: 1rem;
+      border-radius: 5px;
+      border-left: 3px solid #dc3545;
+    }
+
+    .badge {
+      background-color: var(--default-color) !important;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      
+      .article-content {
+        font-size: 1rem;
+      }
+
+      .pros-cons {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body class="blog-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
+        <img src="assets/img/logo.png" alt="Logo">
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#portfolio">Portfolio</a></li>
+          <li><a href="index.html#team">Team</a></li>
+          <li class="dropdown"><a href="#"><span>Tech & Learning</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="index.html#tech-stack">Tech Stack</a></li>
+              <li><a href="blog.html" class="active">Blogs</a></li>
+              <!-- <li><a href="#">Courses</a></li> -->
+            </ul>
+          </li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-getstarted" href="index.html#about">Get Started</a>
+
+    </div>
+  </header>
+
+  <section class="hero-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <div class="hero-content text-center">
+           
+            <span class="blog-category">Startups</span>
+            <h1>Choosing the Right Tech Stack for Your Startup</h1>
+            <div class="blog-meta">
+              <span><i class="bi bi-person"></i> By Zara Mitchell</span>
+              <span><i class="bi bi-calendar"></i> January 8, 2025</span>
+              <span><i class="bi bi-clock"></i> 10 min read</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <article class="article-content">
+            <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg" alt="Startup Tech Stack" class="img-fluid rounded mb-4">
+            
+            <p class="lead">Choosing the right technology stack is one of the most critical decisions early-stage startups face. The wrong choice can lead to technical debt, scalability issues, and ultimately, business failure. The right choice can accelerate development, attract talent, and scale seamlessly with your growth.</p>
+
+            <p>In today's rapidly evolving technology landscape, startups have more options than ever before. From traditional LAMP stacks to modern serverless architectures, the choices can be overwhelming. This comprehensive guide will help you navigate these decisions with confidence and strategic thinking.</p>
+
+            <h2>Understanding Your Startup's Unique Context</h2>
+            
+            <p>Before diving into specific technologies, it's crucial to understand your startup's unique context and constraints. Unlike established enterprises with abundant resources, startups must optimize for speed, cost-effectiveness, and flexibility while preparing for potential rapid scaling.</p>
+
+            <div class="highlight-box">
+              <h4><i class="bi bi-bullseye"></i> Key Consideration</h4>
+              <p><strong>Remember: There's no one-size-fits-all solution. The "best" tech stack is the one that aligns with your team's expertise, business requirements, timeline, and long-term vision.</strong></p>
+            </div>
+
+            <h3>Critical Factors to Evaluate</h3>
+            
+            <ul>
+              <li><strong>Team Expertise:</strong> Leverage your team's existing skills to maintain development velocity</li>
+              <li><strong>Time to Market:</strong> Choose technologies that enable rapid prototyping and iteration</li>
+              <li><strong>Scalability Requirements:</strong> Consider both current needs and future growth projections</li>
+              <li><strong>Budget Constraints:</strong> Factor in development costs, hosting expenses, and licensing fees</li>
+              <li><strong>Talent Acquisition:</strong> Select popular technologies to facilitate future hiring</li>
+              <li><strong>Community Support:</strong> Prioritize technologies with strong documentation and active communities</li>
+            </ul>
+
+            <h2>Frontend Technology Decisions</h2>
+            
+            <p>Your frontend choice significantly impacts user experience, development speed, and long-term maintainability. Let's explore the most popular options for startups:</p>
+
+            <div class="tech-stack-comparison">
+              <div class="tech-option">
+                <h4><i class="bi bi-file-code"></i> React.js</h4>
+                <p>The most popular choice among startups, offering flexibility and a massive ecosystem.</p>
+                <div class="pros-cons">
+                  <div class="pros">
+                    <h6><i class="bi bi-check-circle"></i> Pros</h6>
+                    <ul class="small">
+                      <li>Huge community and job market</li>
+                      <li>Extensive library ecosystem</li>
+                      <li>Flexible and unopinionated</li>
+                      <li>Strong corporate backing (Meta)</li>
+                    </ul>
+                  </div>
+                  <div class="cons">
+                    <h6><i class="bi bi-x-circle"></i> Cons</h6>
+                    <ul class="small">
+                      <li>Steeper learning curve</li>
+                      <li>More decisions to make</li>
+                      <li>Rapid ecosystem changes</li>
+                      <li>Additional tooling required</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tech-option">
+                <h4><i class="bi bi-file-code"></i> Vue.js</h4>
+                <p>A progressive framework that's easier to learn while still being powerful for complex applications.</p>
+                <div class="pros-cons">
+                  <div class="pros">
+                    <h6><i class="bi bi-check-circle"></i> Pros</h6>
+                    <ul class="small">
+                      <li>Gentler learning curve</li>
+                      <li>Excellent documentation</li>
+                      <li>Good performance</li>
+                      <li>Growing ecosystem</li>
+                    </ul>
+                  </div>
+                  <div class="cons">
+                    <h6><i class="bi bi-x-circle"></i> Cons</h6>
+                    <ul class="small">
+                      <li>Smaller talent pool</li>
+                      <li>Less enterprise adoption</li>
+                      <li>Fewer third-party resources</li>
+                      <li>Mainly driven by one person</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tech-option">
+                <h4><i class="bi bi-file-code"></i> Next.js</h4>
+                <p>React-based framework with built-in SSR, routing, and deployment optimizations.</p>
+                <div class="pros-cons">
+                  <div class="pros">
+                    <h6><i class="bi bi-check-circle"></i> Pros</h6>
+                    <ul class="small">
+                      <li>Excellent SEO capabilities</li>
+                      <li>Built-in optimizations</li>
+                      <li>Full-stack capabilities</li>
+                      <li>Great developer experience</li>
+                    </ul>
+                  </div>
+                  <div class="cons">
+                    <h6><i class="bi bi-x-circle"></i> Cons</h6>
+                    <ul class="small">
+                      <li>Opinionated structure</li>
+                      <li>Vendor lock-in potential</li>
+                      <li>Steeper hosting costs</li>
+                      <li>Complex for simple projects</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h2>Backend Architecture Choices</h2>
+            
+            <p>Your backend architecture decision affects scalability, development speed, and operational complexity. Here are the most viable options for startups:</p>
+
+            <h3>Node.js with Express</h3>
+            <p>Perfect for JavaScript-first teams wanting to use the same language across the entire stack. Node.js offers excellent performance for I/O-intensive applications and has a vast ecosystem of packages.</p>
+
+            <p><strong>Best for:</strong> Real-time applications, API development, teams with strong JavaScript skills</p>
+
+            <h3>Python with Django/FastAPI</h3>
+            <p>Python's readability and extensive libraries make it excellent for rapid development. Django provides a batteries-included approach, while FastAPI offers modern async capabilities with automatic API documentation.</p>
+
+            <p><strong>Best for:</strong> Data-heavy applications, AI/ML integration, teams with Python expertise</p>
+
+            <h3>Serverless Architecture</h3>
+            <p>Using AWS Lambda, Vercel Functions, or similar services can significantly reduce operational overhead and costs for startups with variable traffic patterns.</p>
+
+            <p><strong>Best for:</strong> Event-driven applications, minimal DevOps requirements, cost-sensitive projects</p>
+
+            <div class="highlight-box">
+              <h4><i class="bi bi-cloud"></i> Serverless Considerations</h4>
+              <p>While serverless can reduce initial complexity, be aware of potential vendor lock-in and cold start latencies. It's excellent for MVPs but evaluate long-term implications.</p>
+            </div>
+
+            <h2>Database Selection Strategy</h2>
+            
+            <p>Database choice is often permanent and critical to your application's performance and scalability. Consider these factors:</p>
+
+            <h3>PostgreSQL: The Safe Choice</h3>
+            <p>PostgreSQL offers excellent performance, ACID compliance, and advanced features while remaining cost-effective. It's suitable for most startup use cases and scales well with proper optimization.</p>
+
+            <h3>MongoDB: Document Flexibility</h3>
+            <p>Great for applications with evolving schemas or complex nested data structures. However, be cautious of potential consistency issues and ensure your team understands NoSQL principles.</p>
+
+            <h3>Supabase or Firebase: Backend-as-a-Service</h3>
+            <p>These platforms can accelerate early development by providing authentication, real-time subscriptions, and hosting in one package. Ideal for MVPs and early-stage development.</p>
+
+            <h2>DevOps and Deployment Considerations</h2>
+            
+            <p>Startups need deployment strategies that are simple to manage but can scale as the team grows:</p>
+
+            <h3>Platform-as-a-Service (PaaS)</h3>
+            <p>Services like Vercel, Netlify, Railway, or Heroku abstract away infrastructure management, allowing your team to focus on product development. They're excellent for early stages but can become expensive at scale.</p>
+
+            <h3>Containerization with Docker</h3>
+            <p>Docker containers provide consistency across development, testing, and production environments. They're becoming essential as applications grow in complexity.</p>
+
+            <h3>CI/CD Pipeline</h3>
+            <p>Implement automated testing and deployment early. GitHub Actions, GitLab CI, or CircleCI can automate your workflow and improve code quality from day one.</p>
+
+            <h2>Popular Startup Tech Stack Combinations</h2>
+            
+            <div class="tech-stack-comparison">
+              <div class="tech-option">
+                <h4>🚀 The Modern JavaScript Stack</h4>
+                <ul>
+                  <li><strong>Frontend:</strong> Next.js with TypeScript</li>
+                  <li><strong>Backend:</strong> Node.js with Express/NestJS</li>
+                  <li><strong>Database:</strong> PostgreSQL with Prisma ORM</li>
+                  <li><strong>Hosting:</strong> Vercel + Supabase</li>
+                  <li><strong>Authentication:</strong> NextAuth.js</li>
+                </ul>
+                <p class="small text-muted mt-2"><strong>Great for:</strong> Full-stack JavaScript teams, rapid prototyping, SEO-important applications</p>
+              </div>
+
+              <div class="tech-option">
+                <h4>🎯 The Serverless-First Stack</h4>
+                <ul>
+                  <li><strong>Frontend:</strong> React with Vite</li>
+                  <li><strong>Backend:</strong> AWS Lambda + API Gateway</li>
+                  <li><strong>Database:</strong> DynamoDB or Aurora Serverless</li>
+                  <li><strong>Hosting:</strong> CloudFront + S3</li>
+                  <li><strong>Authentication:</strong> AWS Cognito</li>
+                </ul>
+                <p class="small text-muted mt-2"><strong>Great for:</strong> Variable traffic, minimal DevOps, AWS-first organizations</p>
+              </div>
+
+              <div class="tech-option">
+                <h4>🔥 The Firebase Stack</h4>
+                <ul>
+                  <li><strong>Frontend:</strong> React or Vue.js</li>
+                  <li><strong>Backend:</strong> Firebase Functions</li>
+                  <li><strong>Database:</strong> Firestore</li>
+                  <li><strong>Hosting:</strong> Firebase Hosting</li>
+                  <li><strong>Authentication:</strong> Firebase Auth</li>
+                </ul>
+                <p class="small text-muted mt-2"><strong>Great for:</strong> Real-time applications, rapid MVP development, Google ecosystem</p>
+              </div>
+            </div>
+
+            <h2>Common Mistakes to Avoid</h2>
+            
+            <ul>
+              <li><strong>Over-Engineering Early:</strong> Don't build for problems you don't have yet</li>
+              <li><strong>Following Trends Blindly:</strong> Choose based on your needs, not what's popular</li>
+              <li><strong>Ignoring Team Skills:</strong> Factor in your team's expertise and learning curve</li>
+              <li><strong>Neglecting Performance:</strong> Plan for scalability from the beginning</li>
+              <li><strong>Vendor Lock-in:</strong> Consider migration paths and avoid excessive dependency</li>
+              <li><strong>Skipping Documentation:</strong> Document architectural decisions for future team members</li>
+            </ul>
+
+            <h2>Making the Final Decision</h2>
+            
+            <p>When making your final tech stack decision, create a decision matrix that weights factors important to your startup:</p>
+
+            <div class="highlight-box">
+              <h4><i class="bi bi-list-check"></i> Decision Framework</h4>
+              <ol>
+                <li><strong>List your requirements:</strong> Performance, scalability, budget, timeline</li>
+                <li><strong>Evaluate team skills:</strong> What can your team build effectively today?</li>
+                <li><strong>Consider future hiring:</strong> What technologies will help attract talent?</li>
+                <li><strong>Prototype quickly:</strong> Build small proofs-of-concept with top candidates</li>
+                <li><strong>Plan for evolution:</strong> Choose technologies that can grow with your needs</li>
+              </ol>
+            </div>
+
+            <h2>Evolving Your Stack Over Time</h2>
+            
+            <p>Remember that your tech stack isn't permanent. Successful startups evolve their technology choices as they grow:</p>
+
+            <h3>Phase 1: MVP and Early Traction</h3>
+            <p>Focus on speed and simplicity. Use familiar technologies and managed services to validate your business model quickly.</p>
+
+            <h3>Phase 2: Growth and Scaling</h3>
+            <p>Optimize for performance and team productivity. Consider microservices, better monitoring, and more robust infrastructure.</p>
+
+            <h3>Phase 3: Enterprise Scale</h3>
+            <p>Implement enterprise-grade solutions for security, compliance, and global scale. This might involve significant architectural changes.</p>
+
+            <h2>Conclusion</h2>
+            
+            <p>Choosing the right tech stack for your startup is a balance between current needs and future aspirations. Start with technologies your team knows well, prioritize getting to market quickly, and plan for gradual evolution as you grow.</p>
+
+            <p>Remember that the best tech stack is one that enables your team to build, deploy, and iterate rapidly while maintaining code quality and user experience. Don't get caught up in the latest trends—focus on building something your customers love.</p>
+
+            <p>The technology industry changes rapidly, but fundamental principles remain constant: choose tools that solve your problems, enable your team, and support your business objectives. With careful consideration and strategic thinking, your tech stack can become a competitive advantage that propels your startup to success.</p>
+          </article>
+
+          <div class="mt-5 pt-4 border-top">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex gap-2">
+                <span class="badge">Startups</span>
+                <span class="badge">Tech Stack</span>
+                <span class="badge">Strategy</span>
+                <span class="badge">Development</span>
+              </div>
+             
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="sidebar">
+            <div class="author-bio">
+              <img src="assets/img/team/team-4.jpg" alt="Zara Mitchell" class="author-avatar">
+              <h5>Zara Mitchell</h5>
+              <p class="text-muted small">Startup Technology Advisor and Former CTO with experience scaling tech teams from 5 to 50+ engineers. Specialized in early-stage architecture decisions.</p>
+            </div>
+          </div>
+
+          <div class="sidebar">
+            <h5 class="mb-3"><i class="bi bi-bookmark"></i> Related Articles</h5>
+            <div class="related-post">
+              <h6><a href="blog-post-future-software.html">The Future of Software Development</a></h6>
+              <small class="text-muted">January 12, 2025</small>
+            </div>
+            <div class="related-post">
+              <h6><a href="blog-post-agile-development.html">Agile Development Approach</a></h6>
+              <small class="text-muted">January 3, 2025</small>
+            </div>
+            <div class="related-post">
+              <h6><a href="blog-post-digital-transformation.html">Digital Transformation</a></h6>
+              <small class="text-muted">January 5, 2025</small>
+            </div>
+          </div>
+
+          <div class="sidebar">
+            <h5 class="mb-3"><i class="bi bi-stack"></i> Tech Stack Resources</h5>
+            <div class="small">
+              <p><strong>Popular Stacks 2025:</strong></p>
+              <ul class="list-unstyled">
+                <li>• MEAN/MERN Stack</li>
+                <li>• JAMStack</li>
+                <li>• Serverless Stack</li>
+                <li>• T3 Stack</li>
+                <li>• PERN Stack</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-4 col-md-6 footer-about">
+            <img src="assets/img/logo.png" alt="Logo" style="max-height: 95px; width: 95px;">
+            <div class="footer-contact pt-3">
+              <p>
+                Codefinx (Pvt) Ltd<br>
+                Level 5, Aurora Place,<br>
+                88 Phillip Street,<br>
+                Sydney NSW 2000 Australia,
+              </p>
+              <p class="mt-3"><strong>Phone:</strong> <span>+61 430 613 845</span></p>
+              <p><strong>Email:</strong> <span>codefinx@gmail.com</span></p>
+            </div>
+            <div class="social-links d-flex mt-4">
+              <a href=""><i class="bi bi-twitter-x"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="index.html"> Home</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="index.html#about"> About us</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="index.html#services"> Services</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#"> Terms of service</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#"> Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="#"> Web Design</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#"> Web Development</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#"> Product Management</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#"> Marketing</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#"> Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-12 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+            <form action="forms/newsletter.php" method="post" class="php-email-form">
+              <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <div class="container text-center">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Codefinx</strong> <span>All Rights Reserved</span></p>
+        <div class="credits"></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>
